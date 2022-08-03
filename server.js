@@ -5,16 +5,9 @@ const app = express()
 app.use(cors())
 
 const getIndexerConnection = async () => {
-  const network = process.env.NEAR_NETWORK || 'testnet'
-  const connection = new Pool({
-    user: 'public_readonly',
-    password: 'nearprotocol',
-    host: `${network}.db.explorer.indexer.near.dev`,
-    database: `${network}_explorer`,
-    port: 5432,
-  })
+  const connection = new Pool({ connectionString: process.env.INDEXER_CONNECTION_STRING })
   return connection
-};
+}
 
 app.get('/getRequestTxs', async (req, res) => {
   try {
