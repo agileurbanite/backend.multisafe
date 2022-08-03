@@ -23,5 +23,5 @@ node server.js
 or connect to mainnet:
 
 ```
-env NEAR_NETWORK=mainnet node server.js
+INDEXER_CONNECTION_STRING=postgres://public_readonly:nearprotocol@testnet.db.explorer.indexer.near.dev/testnet_explorer node server.js
 ```
